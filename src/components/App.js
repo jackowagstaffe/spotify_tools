@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PlaylistList from './PlaylistList';
 import OptionList from './OptionList';
 import RequestAuth from './RequestAuth';
+import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
@@ -29,4 +30,8 @@ App.defaultProps = {
   authenticated: false
 };
 
-export default App;
+const mapStateToProps = state => ({
+  authenticated: state.auth.authenticated,
+});
+
+export default connect(mapStateToProps)(App);
