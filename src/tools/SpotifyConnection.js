@@ -20,7 +20,16 @@ class Connection {
   getConnection() {
     let query =  queryString.parse(window.location.hash);
     if (query.access_token) {
-      return query;
+      this.token = query.access_token;
+      this.expires = query.expires_in;
+      this.tokenType = query.token_type;
+
+      // After the token expiry period redirect back to the auth page.
+      setTimeout(() => {
+        window.location = this.getAuthUrl();
+      }, (query.expires_in - 1) * 1000);
+
+      return true;
     }
 
     return false;
@@ -33,9 +42,34 @@ class Connection {
   }
   getPlaylists(userId)
   {
-    const path = '/v1/users/' + this.userId + '/playlists';
+    const path = '/v1/users/' + userId + '/playlists';
 
-    return this.makeRequest(path);
+    let data = [];
+
+    return this.getPlaylistItems(
+      data,
+      this.baseUrl + path + '?access_token=' + this.token
+    );
+  }
+
+  getPlaylistItems(data, next)
+  {
+    return fetch(next + '&access_token=' + this.token).then(response => {
+      this.handleExpiredToken(response);
+      if (response.status === 200) {
+        return response.json().then(response => {
+          data = data.concat(response.items);
+
+          if (response.next) {
+            return this.getPlaylistItems(data, response.next);
+          }
+
+          return data;
+        });
+      }
+
+      return null;
+    });
   }
 
   makeGetRequest(path, options = {})
@@ -44,7 +78,17 @@ class Connection {
       'access_token': this.token,
     });
 
-    return fetch(this.baseUrl + path + '?' + queryString.stringify(options));
+    return fetch(this.baseUrl + path + '?' + queryString.stringify(options))
+      .then(response => {
+        this.handleExpiredToken(response);
+        return response;
+      });
+  }
+
+  handleExpiredToken(response){
+    if (response.status === 401) {
+      window.location = this.getAuthUrl();
+    }
   }
 }
 

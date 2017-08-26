@@ -5,7 +5,7 @@ const RequestAuth = () => {
   let url = connection.getAuthUrl();
 
   return (
-    <div className="request-auth">
+    <div className="centre-button">
       <a href={url}>Authenticate with spotify</a>
     </div>
   );

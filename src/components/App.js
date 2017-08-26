@@ -3,6 +3,8 @@ import PlaylistList from './PlaylistList';
 import OptionList from './OptionList';
 import RequestAuth from './RequestAuth';
 import { connect } from 'react-redux';
+import Loader from './ui/Loader';
+import UserPanel from './ui/UserPanel';
 
 class App extends Component {
   render() {
@@ -10,15 +12,20 @@ class App extends Component {
       return (<RequestAuth />);
     }
 
+    // Load the user if they haven't already been
+    if (this.props.userLoading) {
+      return (<Loader color="light" />);
+    }
+
     return (
       <div className="app">
-        <h1>Spotify Tools</h1>
+        <UserPanel user={this.props.userData} />
+        <h1>Spotify&nbsp;Tools</h1>
         <div className="panel">
           Use the tools below to select two playlists and compare/transform them.
           <div className="container">
-            <div className="block"><PlaylistList /></div>
-            <div className="block"><OptionList /></div>
-            <div className="block"><PlaylistList /></div>
+            <OptionList />
+            <PlaylistList />
           </div>
         </div>
       </div>
@@ -31,7 +38,8 @@ App.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  authenticated: state.auth.authenticated,
+  userLoading: state.user.loading,
+  userData: state.user.data,
 });
 
 export default connect(mapStateToProps)(App);
