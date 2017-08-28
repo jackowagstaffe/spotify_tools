@@ -38,7 +38,7 @@ class Connection {
   {
     const path = '/v1/me';
 
-    return this.makeGetRequest(path);
+    return this.makeGetRequest(this.baseUrl + path);
   }
   getPlaylists(userId)
   {
@@ -72,13 +72,64 @@ class Connection {
     });
   }
 
+  getPlaylist(url) {
+    return this.makeGetRequest(url).then(response => {
+      if (response.status === 200) {
+        return response.json().then(response => {
+          let result = {
+            images: response.images,
+            name: response.name,
+            id: response.id,
+            tracks: [],
+          };
+
+          for (let i = 0; i < response.tracks.items.length; i++) {
+            result.tracks.push(response.tracks.items[i].track);
+          }
+
+          if (response.tracks.next) {
+            return this.getPlaylistPart(result, response.tracks.next);
+          }
+
+          return result;
+        });
+      }
+    });
+  }
+
+  getPlaylistPart(result, next) {
+    return this.makeGetRequest(next).then(response => {
+      if (response.status === 200) {
+        return response.json().then(response => {
+          for (let i = 0; i < response.items.length; i++) {
+            result.tracks.push(response.items[i].track);
+          }
+
+          if (response.next) {
+            return this.getPlaylistPart(result, response.next);
+          }
+
+          return result;
+        });
+      }
+
+      return null;
+    });
+  }
+
   makeGetRequest(path, options = {})
   {
     options = Object.assign({}, options, {
       'access_token': this.token,
     });
 
-    return fetch(this.baseUrl + path + '?' + queryString.stringify(options))
+    // Append to the query string if there aready is one.
+    let divider = '?';
+    if (path.indexOf('?') >= 0) {
+      divider = '&';
+    }
+
+    return fetch(path + divider + queryString.stringify(options))
       .then(response => {
         this.handleExpiredToken(response);
         return response;

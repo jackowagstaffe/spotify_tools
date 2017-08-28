@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import Loader from './ui/Loader';
 import PlaylistCard from './ui/PlaylistCard';
 import SearchBox from './ui/SearchBox';
+import selectPlaylist from '../actions/SelectPlaylist';
 
 class PlaylistList extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       visiblePlaylists: [],
     };
@@ -43,14 +44,14 @@ class PlaylistList extends Component {
     for (let i=0; i < this.state.visiblePlaylists.length; i++) {
       let playlist = this.state.visiblePlaylists[i];
       playlists.push(<li key={playlist.id}>
-        <PlaylistCard playlist={playlist} />
+        <PlaylistCard playlist={playlist} selectPlaylist={this.props.selectPlaylist} />
       </li>);
     }
 
     return (
       <div className="playlist-list">
         <SearchBox id="playlist-search" onChange={this.search} />
-        <h2>Playlists</h2>
+        <p className="lead">You have { this.props.count } playlists.</p>
         <ul>
           {playlists}
         </ul>
@@ -63,6 +64,11 @@ class PlaylistList extends Component {
 const mapStateToProps = state => ({
   loading: state.playlists.loading,
   playlists: state.playlists.userPlaylists,
+  count: state.playlists.userPlaylists.length,
 });
 
-export default connect(mapStateToProps)(PlaylistList);
+const mapDispatchToProps = (dispatch) => ({
+  selectPlaylist: (url, bay) => dispatch(selectPlaylist(url, bay)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlaylistList);
