@@ -11,13 +11,12 @@ const generateResult = (method) => {
     });
 
     const playlistA = arrayTools.makeUnique(
-      store.getState().playlists.selectedA
+      store.getState().playlists.selectedA.data.tracks
     );
     const playlistB = arrayTools.makeUnique(
-      store.getState().playlists.selectedB
+      store.getState().playlists.selectedB.data.tracks
     );
 
-    console.log(store.getState().playlists);
     let result = [];
 
     switch(method) {

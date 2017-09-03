@@ -306,6 +306,43 @@ p, body, input {
   padding-left: 5px;
 }
 
+.tabs-list {
+  border-bottom: 1px solid #ddd;
+}
+
+.tabs-list ul {
+  margin-bottom: -1px;
+  margin-left: -17px;
+  margin-right: -17px;
+  padding: 0px;
+}
+
+.tabs-list li {
+  display: inline-block;
+  list-style: none;
+  width: 50%;
+}
+
+.tabs-list li a {
+  border-bottom: 1px solid #888;
+  padding: 7px;
+  width: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+  color: #555;
+  text-align: center;
+}
+
+.tabs-list li:first-child a {
+  border-right: 1px solid #888;
+}
+
+.tabs-list li a.active {
+  border-top: 1px solid #888;
+  border-bottom: 1px solid white;
+  color: black;
+}
+
 @media(max-width: 500px) {
   h1 {
     font-size: 2em;

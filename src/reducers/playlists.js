@@ -1,11 +1,14 @@
 import { LOADING_MY_PLAYLISTS, RECEIVED_MY_PLAYLISTS } from '../actions/GetMe';
 import { LOADING_PLAYLIST, RECEIVED_PLAYLIST } from '../actions/SelectPlaylist';
+import { RECEIVED_SEARCH } from '../actions/SearchPlaylists';
 
 const initialState = {
   loading: true,
   selectedA: null,
   selectedB: null,
   userPlaylists: [],
+  visiblePlaylists: [],
+  searchQuery: '',
 };
 
 export default (state = initialState, action) => {
@@ -24,6 +27,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+        visiblePlaylists: action.data,
         userPlaylists: action.data,
       };
     case LOADING_PLAYLIST:
@@ -40,6 +44,12 @@ export default (state = initialState, action) => {
       };
 
       return newState;
+    case RECEIVED_SEARCH:
+      return {
+        ...state,
+        visiblePlaylists: action.data,
+        searchQuery: action.query,
+      };
     default:
       return state;
   }

@@ -5,6 +5,8 @@ import RequestAuth from './RequestAuth';
 import { connect } from 'react-redux';
 import Loader from './ui/Loader';
 import UserPanel from './ui/UserPanel';
+import Tabs from './ui/Tabs';
+import Tab from './ui/Tab';
 
 class App extends Component {
   render() {
@@ -25,7 +27,14 @@ class App extends Component {
           Use the tools below to select two playlists and compare/transform them.
           <div className="container">
             <OptionList />
-            <PlaylistList />
+            <Tabs>
+              <Tab title="Playlists">
+                <PlaylistList />
+              </Tab>
+              <Tab title="Result">
+                <p>Result.</p>
+              </Tab>
+            </Tabs>
           </div>
         </div>
       </div>
