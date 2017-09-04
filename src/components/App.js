@@ -7,6 +7,7 @@ import Loader from './ui/Loader';
 import UserPanel from './ui/UserPanel';
 import Tabs from './ui/Tabs';
 import Tab from './ui/Tab';
+import Result from './ui/Result';
 
 class App extends Component {
   render() {
@@ -32,7 +33,7 @@ class App extends Component {
                 <PlaylistList />
               </Tab>
               <Tab title="Result">
-                <p>Result.</p>
+                <Result results={this.props.results} />
               </Tab>
             </Tabs>
           </div>
@@ -49,6 +50,7 @@ App.defaultProps = {
 const mapStateToProps = state => ({
   userLoading: state.user.loading,
   userData: state.user.data,
+  results: state.result.result,
 });
 
 export default connect(mapStateToProps)(App);
