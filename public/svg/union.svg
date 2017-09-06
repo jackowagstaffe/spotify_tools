@@ -1,107 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<?xml version="1.0" standalone="no"?>
 
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="217.72658"
-   height="156.10939"
-   viewBox="0 0 217.72658 156.10939"
-   id="svg2"
-   version="1.1"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="union.svg"
-   style="shape-rendering:crispEdges">
-  <defs
-     id="defs4">
-    <radialGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4271"
-       id="radialGradient4277"
-       cx="62.039043"
-       cy="126.93244"
-       fx="62.039043"
-       fy="126.93244"
-       r="105.88776"
-       gradientTransform="matrix(1.4452199,-0.9766371,1.0296471,1.5236635,-154.28425,873.83521)"
-       gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       inkscape:collect="always"
-       id="linearGradient4271">
-      <stop
-         style="stop-color:#e29041;stop-opacity:1;"
-         offset="0"
-         id="stop4273" />
-      <stop
-         style="stop-color:#ace0d9;stop-opacity:1"
-         offset="1"
-         id="stop4275" />
-    </linearGradient>
+<svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="gradient" cx="0" cy="100%" r="100%">
+      <stop offset="0%" stop-color="#e29041"/>
+      <stop offset="100%" stop-color="#ace0d9"/>
+    </radialGradient>
   </defs>
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="21.699294"
-     inkscape:cy="20.15483"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     showborder="true"
-     inkscape:window-width="1319"
-     inkscape:window-height="744"
-     inkscape:window-x="47"
-     inkscape:window-y="24"
-     inkscape:window-maximized="1"
-     units="px"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0" />
-  <metadata
-     id="metadata7">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="base"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(-32.565289,-869.30751)"
-     style="display:inline">
-    <path
-       style="display:inline;fill:url(#radialGradient4277);fill-opacity:1;fill-rule:evenodd;stroke:#666666;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 172.31725,872.80751 a 74.475517,74.475517 0 0 0 -31.03906,6.87696 74.475517,74.475517 0 0 0 -30.73829,-6.71875 74.475517,74.475517 0 0 0 -74.474611,74.47461 74.475517,74.475517 0 0 0 74.474611,74.47657 74.475517,74.475517 0 0 0 31.03907,-6.8769 74.475517,74.475517 0 0 0 30.73828,6.7187 74.475517,74.475517 0 0 0 74.47461,-74.47462 74.475517,74.475517 0 0 0 -74.47461,-74.47657 z"
-       id="path3336-2"
-       inkscape:connector-curvature="0" />
+  <g class="ven-fill">
+    <circle class="fill" style="fill: url(#gradient)" cx="30" cy="30" r="20" />
+    <circle class="fill" style="fill: url(#gradient)" cx="50" cy="30" r="20" />
   </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer4"
-     inkscape:label="middle"
-     style="display:inline"
-     transform="translate(-32.565289,-29.54373)">
-    <path
-       style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#666666;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 141.6363,40.276856 A 74.475517,74.475517 0 0 0 98.198799,107.87843 74.475517,74.475517 0 0 0 141.93708,175.63429 74.475517,74.475517 0 0 0 185.37263,108.03468 74.475517,74.475517 0 0 0 141.6363,40.276856 Z"
-       id="path3336-35"
-       inkscape:connector-curvature="0" />
+  <g class="ven-lines">
+    <circle class="lines" fill="transparent" stroke="black" stroke-width="1px" cx="30" cy="30" r="20" />
+    <circle class="lines" fill="transparent" stroke="black" stroke-width="1px" cx="50" cy="30" r="20" />
   </g>
 </svg>

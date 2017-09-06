@@ -192,8 +192,8 @@ body {
       .options-container .options-box .option-item.active img {
         filter: grayscale(0%) opacity(1); }
       .options-container .options-box .option-item img {
-        width: 48px;
-        height: 36px;
+        width: 80px;
+        height: 60px;
         filter: grayscale(100%) opacity(0.7); }
     .options-container .options-box .button {
       clear: both;
