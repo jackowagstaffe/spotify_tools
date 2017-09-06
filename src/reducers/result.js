@@ -1,7 +1,7 @@
 import { LOADING_RESULT, RECEIVED_RESULT } from '../actions/GenerateResult';
 
 const initialState = {
-  loading: null,
+  hasResult: false,
   result: [],
 };
 
@@ -10,13 +10,13 @@ export default (state = initialState, action) => {
     case LOADING_RESULT:
       return {
         ...state,
-        loading: true,
+        hasResult: false,
         result: [],
       };
     case RECEIVED_RESULT:
       return {
         ...state,
-        loading: false,
+        hasResult: true,
         result: action.result,
       };
     default:

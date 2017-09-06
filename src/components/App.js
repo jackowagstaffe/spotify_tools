@@ -32,7 +32,7 @@ class App extends Component {
               <Tab title="Playlists">
                 <PlaylistList />
               </Tab>
-              <Tab title="Result">
+              <Tab title="Result" disabled={!this.props.hasResult}>
                 <Result results={this.props.results} />
               </Tab>
             </Tabs>
@@ -51,6 +51,7 @@ const mapStateToProps = state => ({
   userLoading: state.user.loading,
   userData: state.user.data,
   results: state.result.result,
+  hasResult: state.result.hasResult,
 });
 
 export default connect(mapStateToProps)(App);

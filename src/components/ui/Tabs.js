@@ -23,11 +23,19 @@ class Tabs extends React.Component {
       if (this.state.currentTab === i) {
         active = 'active';
       }
-      tabList.push(<li key={i}>
-          <a className={`tabs-button ${active}`} data-id={i} onClick={this.updateTab}>
-            {this.props.children[i].props.title}
-          </a>
-        </li>);
+      if (this.props.children[i].props.disabled) {
+        tabList.push(<li key={i}>
+            <a className={`tabs-button disabled`}>
+              {this.props.children[i].props.title}
+            </a>
+          </li>);
+      } else {
+        tabList.push(<li key={i}>
+            <a className={`tabs-button ${active}`} data-id={i} onClick={this.updateTab}>
+              {this.props.children[i].props.title}
+            </a>
+          </li>);
+      }
     }
 
     return (<div className="tabs">

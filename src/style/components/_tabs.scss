@@ -1,0 +1,44 @@
+.tabs-list {
+  border-bottom: 1px solid #ddd;
+
+  ul {
+    margin-bottom: -1px;
+    margin-left: -17px;
+    margin-right: -17px;
+    padding: 0px;
+
+    li {
+      display: inline-block;
+      list-style: none;
+      width: 50%;
+
+      &:first-child a {
+        border-right: 1px solid #888;
+      }
+
+      a {
+        border-bottom: 1px solid #888;
+        padding: 7px;
+        width: 100%;
+        display: inline-block;
+        box-sizing: border-box;
+        color: black;
+        text-align: center;
+        cursor: pointer;
+        cursor: hand;
+
+        &.disabled {
+          color: #888;
+          cursor: auto;
+        }
+
+        &.active {
+          border-top: 1px solid #888;
+          border-bottom: 1px solid white;
+          color: black;
+          cursor: auto;
+        }
+      }
+    }
+  }
+}

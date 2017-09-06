@@ -1,0 +1,32 @@
+body, p, a, li {
+  font-family: $font-main;
+}
+
+h1 {
+  font-family: $font-header;
+  font-weight: 300;
+  margin: 5px;
+  margin-left: 15px;
+  padding-top: 13px;
+  font-size: 3em;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+h2 {
+  font-family: $font-main;
+  font-weight: 200;
+  font-size: 1.8em;
+  letter-spacing: -0.03em;
+}
+
+p, body, input {
+  font-family: $font-main;
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
+.lead {
+  font-size: 1.2em;
+  font-weight: 200;
+}
