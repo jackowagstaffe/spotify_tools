@@ -8,6 +8,7 @@ import UserPanel from './ui/UserPanel';
 import Tabs from './ui/Tabs';
 import Tab from './ui/Tab';
 import Result from './ui/Result';
+import selectTab from '../actions/SelectTab';
 
 class App extends Component {
   render() {
@@ -25,10 +26,10 @@ class App extends Component {
         <UserPanel user={this.props.userData} />
         <h1>Spotify&nbsp;Tools</h1>
         <div className="panel">
-          Use the tools below to select two playlists and compare/transform them.
+          <div className="inner">Use the tools below to select two playlists and compare/transform them.</div>
           <div className="container">
             <OptionList />
-            <Tabs>
+            <Tabs selectTab={this.props.selectTab} tab={this.props.tab}>
               <Tab title="Playlists">
                 <PlaylistList />
               </Tab>
@@ -52,6 +53,11 @@ const mapStateToProps = state => ({
   userData: state.user.data,
   results: state.result.result,
   hasResult: state.result.hasResult,
+  tab: state.tab.tab,
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => ({
+  selectTab: (tab) => dispatch(selectTab(tab)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

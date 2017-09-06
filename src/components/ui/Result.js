@@ -7,7 +7,13 @@ const Result = props => {
     results.push(<ResultItem key={props.results[i].id} result={props.results[i]} />);
   }
   return (<div className="result">
-    {results}
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Artist</th>
+      </tr>
+      {results}
+    </table>
   </div>);
 };
 

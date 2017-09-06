@@ -6,7 +6,7 @@ import CompareOptions from './ui/CompareOptions';
 class OptionList extends Component {
   render() {
     return (
-      <div className="option-list">
+      <div className="option-list inner">
         <h2>Selected Playlists</h2>
         <div className="options-container">
           <SelectedPlaylist playlist={this.props.playlistA} label="A" />

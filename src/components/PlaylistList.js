@@ -33,8 +33,10 @@ class PlaylistList extends Component {
 
     return (
       <div className="playlist-list">
-        <SearchBox id="playlist-search" value={this.props.searchQuery} onChange={this.props.search} />
-        <p className="lead">You have { this.props.count } playlists.</p>
+        <div className="bar">
+          <SearchBox id="playlist-search" value={this.props.searchQuery} onChange={this.props.search} />
+          <p className="lead">You have { this.props.count } playlists.</p>
+        </div>
         <ul>
           {playlists}
         </ul>

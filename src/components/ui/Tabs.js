@@ -11,16 +11,14 @@ class Tabs extends React.Component {
     this.updateTab = this.updateTab.bind(this);
   }
   updateTab(event) {
-    this.setState({
-      currentTab: +event.target.dataset.id,
-    });
+    this.props.selectTab(+event.target.dataset.id);
   }
   render() {
-    const content = this.props.children[this.state.currentTab];
+    const content = this.props.children[this.props.tab];
     let tabList = [];
     for (let i = 0; i < this.props.children.length; i++) {
       let active = '';
-      if (this.state.currentTab === i) {
+      if (this.props.tab === i) {
         active = 'active';
       }
       if (this.props.children[i].props.disabled) {

@@ -5,9 +5,9 @@ const ResultItem = props => {
   for (let i = 0; i < props.result.artists.length; i++) {
     artists += ' ' + props.result.artists[i].name + ',';
   }
-  return (<div className="result-item">
-    {props.result.name} - <span className="secondary">{artists}</span>
-  </div>);
+  return (<tr>
+    <td>{props.result.name}</td><td className="secondary">{artists}</td>
+  </tr>);
 };
 
 export default ResultItem;
