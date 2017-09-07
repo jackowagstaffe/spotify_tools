@@ -10,7 +10,7 @@ class OptionList extends Component {
         <h2>Selected Playlists</h2>
         <div className="options-container">
           <SelectedPlaylist playlist={this.props.playlistA} label="A" />
-          <CompareOptions />
+          <CompareOptions hasSelections={this.props.playlistA && this.props.playlistB} />
           <SelectedPlaylist playlist={this.props.playlistB} label="B" />
           <div className="clearfix"></div>
         </div>

@@ -8,6 +8,8 @@ class CompareOptions extends Component {
     super(props);
     this.state = {
       selected: null,
+      resultButtonTooltipClass: 'hidden',
+      resultButtonMessage: '',
     };
     this.updateSelected = this.updateSelected.bind(this);
     this.getResult = this.getResult.bind(this);
@@ -19,9 +21,35 @@ class CompareOptions extends Component {
     });
   }
   getResult() {
-    if (this.state.selected) {
-      this.props.generateResult(this.state.selected);
+    if (!this.props.hasSelections) {
+      this.setState({
+        resultButtonTooltipClass: 'visible',
+        resultButtonMessage: 'You must select two playlists to use from below.',
+      });
+      setTimeout(() => {
+        this.setState({
+          resultButtonTooltipClass: 'hidden',
+          resultButtonMessage: '',
+        });
+      }, 2000);
+      return;
     }
+
+    if (!this.state.selected) {
+      this.setState({
+        resultButtonTooltipClass: 'visible',
+        resultButtonMessage: 'You must select a comparison type from above.'
+      });
+      setTimeout(() => {
+        this.setState({
+          resultButtonTooltipClass: 'hidden',
+          resultButtonMessage: '',
+        });
+      }, 2000);
+      return;
+    }
+
+    this.props.generateResult(this.state.selected);
   }
   isActive(val) {
     return this.state.selected === val ? ' active' : '';
@@ -74,7 +102,13 @@ class CompareOptions extends Component {
           </Tooltip>
         </div>
       </div>
-      <a className="button" onClick={this.getResult}>Get Result</a>
+      <div className="tooltip-container">
+        <a className="button" onClick={this.getResult}>Get Result</a>
+        <div className={`tooltip ${this.state.resultButtonTooltipClass}`}>
+          {this.state.resultButtonMessage}
+        </div>
+      </div>
+
     </div>);
   };
 }

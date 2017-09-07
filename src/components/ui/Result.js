@@ -8,11 +8,15 @@ const Result = props => {
   }
   return (<div className="result">
     <table>
-      <tr>
-        <th>Title</th>
-        <th>Artist</th>
-      </tr>
-      {results}
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Artist</th>
+        </tr>
+      </thead>
+      <tbody>
+        {results}
+      </tbody>
     </table>
   </div>);
 };
