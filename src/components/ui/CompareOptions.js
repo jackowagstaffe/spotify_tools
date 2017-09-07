@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import generateResult from '../../actions/GenerateResult';
+import Tooltip from './Tooltip';
 
 class CompareOptions extends Component {
   constructor(props) {
@@ -29,40 +30,48 @@ class CompareOptions extends Component {
     return (<div className="options-box">
       <div className="option-items">
         <div>
-          <div
-            className={`option-item ${this.isActive('union')}`}
-            onClick={this.updateSelected}
-            data-value="union"
-          >
-            <span className="sr-only">Combine playlists</span>
-            <img src="svg/union.svg" alt="Combine playlists" />
-          </div>
-          <div
-            className={`option-item ${this.isActive('intersect')}`}
-            onClick={this.updateSelected}
-            data-value="intersect"
-          >
-            <span className="sr-only">Tracks that are in both</span>
-            <img src="svg/intersection.svg" alt="Tracks that are in both" />
-          </div>
+          <Tooltip text="Combine playlists">
+            <div
+              className={`option-item ${this.isActive('union')}`}
+              onClick={this.updateSelected}
+              data-value="union"
+            >
+              <span className="sr-only">Combine playlists</span>
+              <img src="svg/union.svg" alt="Combine playlists" />
+            </div>
+          </Tooltip>
+          <Tooltip text="Tracks that are in both">
+            <div
+              className={`option-item ${this.isActive('intersect')}`}
+              onClick={this.updateSelected}
+              data-value="intersect"
+            >
+              <span className="sr-only">Tracks that are in both</span>
+              <img src="svg/intersection.svg" alt="Tracks that are in both" />
+            </div>
+          </Tooltip>
         </div>
         <div>
-          <div
-            className={`option-item ${this.isActive('anotb')}`}
-            onClick={this.updateSelected}
-            data-value="anotb"
-          >
-            <span className="sr-only">Tracks that are in A but not B</span>
-            <img src="svg/left.svg" alt="Tracks that are in A but not B" />
-          </div>
-          <div
-            className={`option-item ${this.isActive('bnota')}`}
-            onClick={this.updateSelected}
-            data-value="bnota"
-          >
-            <span className="sr-only">Tracks that are in B but not A</span>
-            <img src="svg/right.svg" alt="Tracks that are in B but not A" />
-          </div>
+          <Tooltip text="Tracks that are in A but not B">
+            <div
+              className={`option-item ${this.isActive('anotb')}`}
+              onClick={this.updateSelected}
+              data-value="anotb"
+            >
+              <span className="sr-only">Tracks that are in A but not B</span>
+              <img src="svg/left.svg" alt="Tracks that are in A but not B" />
+            </div>
+          </Tooltip>
+          <Tooltip text="Tracks that are in B but not A">
+            <div
+              className={`option-item ${this.isActive('bnota')}`}
+              onClick={this.updateSelected}
+              data-value="bnota"
+            >
+              <span className="sr-only">Tracks that are in B but not A</span>
+              <img src="svg/right.svg" alt="Tracks that are in B but not A" />
+            </div>
+          </Tooltip>
         </div>
       </div>
       <a className="button" onClick={this.getResult}>Get Result</a>

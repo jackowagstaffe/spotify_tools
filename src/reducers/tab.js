@@ -17,7 +17,6 @@ export default (state = initialState, action) => {
         ...state,
         tab: 1,
       };
-      break;
     default:
       return state;
   }

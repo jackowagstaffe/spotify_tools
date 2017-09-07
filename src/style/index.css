@@ -39,7 +39,7 @@ body {
   height: 100%; }
 
 .background {
-  background-image: radial-gradient(to top right, #e29041, #ace0d9);
+  background-image: radial-gradient(to top right, #572658, #32af98);
   width: 100%;
   height: 100%;
   position: fixed;
@@ -61,7 +61,7 @@ body {
   position: absolute;
   width: 100%;
   height: 2px;
-  background-color: white; }
+  background-color: rgba(255, 255, 255, 0.75); }
 
 .mini-panel {
   color: white;
@@ -75,10 +75,13 @@ body {
 
 @media (max-width: 500px) {
   h1 {
-    font-size: 2em; }
+    font-size: 2.5em;
+    margin-top: 0px; }
   .app {
     margin-top: 0px;
-    width: 100%; } }
+    width: 100%; }
+  .app:before {
+    height: 0px; } }
 
 .panel {
   background-color: white;
@@ -177,7 +180,7 @@ body {
       width: 150px;
       height: 90px;
       background-color: #555;
-      background-image: radial-gradient(to top right, #9e642d, #789c97);
+      background-image: radial-gradient(to top right, #333d4d, #407d81);
       color: white;
       text-transform: uppercase;
       text-align: center;
@@ -339,3 +342,41 @@ body {
   .result td {
     display: block;
     width: 100%; } }
+
+.tooltip-container {
+  position: relative;
+  display: inline-block; }
+  .tooltip-container .tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.95);
+    color: white;
+    text-align: center;
+    padding: 3px 7px;
+    top: 80%;
+    z-index: 9999999;
+    overflow: visible;
+    width: 200%;
+    margin-left: -50%; }
+    .tooltip-container .tooltip.visible {
+      display: block; }
+    .tooltip-container .tooltip.hidden {
+      display: none; }
+  .tooltip-container .tooltip:after, .tooltip-container .tooltip:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none; }
+  .tooltip-container .tooltip:after {
+    border-color: transparent;
+    border-bottom-color: #000000;
+    border-width: 7px;
+    margin-left: -7px; }
+  .tooltip-container .tooltip:before {
+    border-color: rgba(221, 221, 221, 0);
+    border-bottom-color: #ddd;
+    border-width: 8px;
+    margin-left: -8px; }

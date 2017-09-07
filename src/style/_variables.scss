@@ -1,9 +1,12 @@
-$colour1: #e29041;
-$colour2: #ace0d9;
+$colour1: #572658;
+$colour2: #32af98;
+$subtle1: #333d4d;
+$subtle2: #407d81;
 $text: #000;
 $gray: #555;
 $light-gray: #ddd;
-$gradient: radial-gradient(to top right, #e29041, #ace0d9);
+$gradient: radial-gradient(to top right, $colour1, $colour2);
+$gradient-subtle: radial-gradient(to top right, $subtle1, $subtle2);
 $shadow-large: 0px 0px 50px rgba(0,0,0,0.3);
 $shadow: 1px 1px 1px rgba(0,0,0,0.2);
 $font-main: 'Assistant', sans-serif;
