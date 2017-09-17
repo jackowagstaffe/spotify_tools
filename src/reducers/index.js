@@ -4,6 +4,7 @@ import user from './user';
 import playlists from './playlists';
 import result from './result';
 import tab from './tab';
+import created from './created';
 
 export default combineReducers({
   routing: routerReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
   playlists,
   result,
   tab,
+  created,
 })

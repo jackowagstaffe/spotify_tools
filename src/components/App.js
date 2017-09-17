@@ -7,6 +7,8 @@ import Loader from './ui/Loader';
 import UserPanel from './ui/UserPanel';
 import Tabs from './ui/Tabs';
 import Tab from './ui/Tab';
+import CreatePlaylist from './ui/CreatePlaylist';
+import createPlaylist from '../actions/CreatePlaylist';
 import Result from './ui/Result';
 import selectTab from '../actions/SelectTab';
 
@@ -34,7 +36,10 @@ class App extends Component {
                 <PlaylistList />
               </Tab>
               <Tab title="Result" disabled={!this.props.hasResult}>
-                <Result results={this.props.results} />
+                <div>
+                  <CreatePlaylist createPlaylist={this.props.createPlaylist} />
+                  <Result results={this.props.results} />
+                </div>
               </Tab>
             </Tabs>
           </div>
@@ -58,6 +63,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => ({
   selectTab: (tab) => dispatch(selectTab(tab)),
+  createPlaylist: (name) => dispatch(createPlaylist(name)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

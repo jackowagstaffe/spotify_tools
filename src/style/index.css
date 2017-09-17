@@ -78,15 +78,18 @@ input[type=text].form-control {
 .mini-panel.right {
   float: right; }
 
-@media (max-width: 500px) {
-  h1 {
-    font-size: 2.5em;
-    margin-top: 0px; }
+@media (max-width: 800px) {
   .app {
     margin-top: 0px;
     width: 100%; }
   .app:before {
-    height: 0px; } }
+    height: 0px; }
+  h1 {
+    margin-top: 0px; } }
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 2.5em; } }
 
 .panel {
   background-color: white;

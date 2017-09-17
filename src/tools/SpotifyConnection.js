@@ -117,6 +117,42 @@ class Connection {
     });
   }
 
+  createPlaylist(userId, name, tracks) {
+    // Create the playlist
+    const data = {
+      name,
+    };
+
+    // Transform tracks
+    tracks = tracks.map(track => track.uri);
+
+    return fetch(
+      `${this.baseUrl}/v1/users/${userId}/playlists?access_token=${this.token}`,
+      {
+        method: 'POST',
+        body: JSON.stringify(data),
+      }
+    ).then(response => {
+      if (response.status === 201) {
+        return response.json().then(response => {
+          while (tracks.length > 0) {
+            fetch(
+              `${response.href}/tracks?access_token=${this.token}`,
+              {
+                method: 'POST',
+                body: JSON.stringify({
+                  uris: tracks.splice(0, 100),
+                }),
+              }
+            );
+          }
+        });
+      }
+
+      return;
+    });
+  }
+
   makeGetRequest(path, options = {})
   {
     options = Object.assign({}, options, {
