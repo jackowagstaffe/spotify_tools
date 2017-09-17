@@ -26,8 +26,17 @@ class PlaylistList extends Component {
     let playlists = [];
     for (let i=0; i < this.state.visiblePlaylists.length; i++) {
       let playlist = this.state.visiblePlaylists[i];
+
+      let selectedA = Boolean(this.props.selectedA && this.props.selectedA.data.id === playlist.id);
+      let selectedB = Boolean(this.props.selectedB && this.props.selectedB.data.id === playlist.id);
+
       playlists.push(<li key={playlist.id}>
-        <PlaylistCard playlist={playlist} selectPlaylist={this.props.selectPlaylist} />
+        <PlaylistCard
+          playlist={playlist}
+          selectPlaylist={this.props.selectPlaylist}
+          selectedA={selectedA}
+          selectedB={selectedB}
+        />
       </li>);
     }
 
@@ -51,6 +60,8 @@ const mapStateToProps = state => ({
   playlists: state.playlists.visiblePlaylists,
   count: state.playlists.userPlaylists.length,
   searchQuery: state.playlists.searchQuery,
+  selectedA: state.playlists.selectedA,
+  selectedB: state.playlists.selectedB,
 });
 
 const mapDispatchToProps = (dispatch) => ({

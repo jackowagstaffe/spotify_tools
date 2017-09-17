@@ -21,6 +21,7 @@
     overflow: hidden;
     text-align: center;
     font-size: 1.2em;
+    transition: all 0.3s ease;
 
     p {
       text-align: center;
@@ -28,6 +29,7 @@
     }
 
     .playlist-image {
+      transition: all 0.3s ease;
       position: relative;
       width: 100px;
       height: 100px;
@@ -37,6 +39,7 @@
       img {
         width: 100px;
         height: 100px;
+        transition: all 0.3s ease
       }
 
       a {
@@ -48,6 +51,19 @@
         background-color: rgba(0,0,0,0);
         color: rgba(0,0,0,0);
         font-weight: normal;
+        cursor: pointer;
+        cursor: hand;
+        transition: background-color 0.3s ease;
+
+        &.selected {
+          background-color: rgba(0,0,0,1);
+          color: rgba(255,255,255,1);
+        }
+
+        &.b {
+          left: 50%;
+          margin-left: 0px;
+        }
       }
     }
   }
@@ -70,11 +86,6 @@
         font-size: 1.2em;
         padding-top: 38px;
         height: 62px;
-      }
-
-      a.b {
-        left: 50%;
-        margin-left: 0px;
       }
     }
   }

@@ -13,8 +13,18 @@ export default props => {
   return (<div className="playlist-card">
     <div className="playlist-image">
       <img src={image} alt={props.playlist.name} />
-      <a onClick={selectPlaylist}>A</a>
-      <a onClick={selectPlaylist} className="b">B</a>
+      <a
+        onClick={selectPlaylist}
+        className={props.selectedA ? 'selected' : ''}
+      >
+        A
+      </a>
+      <a
+        onClick={selectPlaylist}
+        className={`b ${props.selectedB ? 'selected' : ''}`}
+      >
+        B
+      </a>
     </div>
     <p>{props.playlist.name}</p>
 
