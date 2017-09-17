@@ -35,6 +35,11 @@ body {
   padding: 0;
   min-width: 320px; }
 
+input[type=text].form-control {
+  border: 1px solid #555;
+  margin: 0px 7px;
+  padding: 7px; }
+
 #root, #root > div {
   height: 100%; }
 
@@ -153,11 +158,16 @@ body {
   text-align: center;
   padding: 7px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  transition: all 0.5s ease; }
+  transition: all 0.5s ease;
+  margin: 0px 3px; }
   .button:hover {
     color: black;
     cursor: pointer;
     cursor: hand; }
+
+.button-container {
+  margin: 13px;
+  display: inline-block; }
 
 .options-container {
   max-width: 560px;
@@ -280,6 +290,13 @@ body {
     clear: both;
     width: 100%; }
 
+@media (max-width: 500px) {
+  .playlist-list label {
+    margin-top: 20px; }
+  .playlist-list p, .playlist-list label {
+    display: block;
+    float: none; } }
+
 .tabs-list {
   border-bottom: 1px solid #ddd; }
   .tabs-list ul {
@@ -393,3 +410,6 @@ body {
     border-bottom-color: #ddd;
     border-width: 8px;
     margin-left: -8px; }
+
+.playlist-input {
+  padding: 13px; }

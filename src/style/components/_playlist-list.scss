@@ -95,3 +95,15 @@
     width: 100%;
   }
 }
+
+@media(max-width: $break-small) {
+  .playlist-list {
+    label {
+      margin-top: 20px;
+    }
+    p, label {
+      display: block;
+      float: none;
+    }
+  }
+}

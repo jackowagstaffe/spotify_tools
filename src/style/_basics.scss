@@ -8,6 +8,12 @@ body {
   min-width: 320px;
 }
 
+input[type=text].form-control {
+  border: 1px solid #555;
+  margin: 0px 7px;
+  padding: 7px;
+}
+
 #root, #root > div {
   height: 100%;
 }

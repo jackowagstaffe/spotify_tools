@@ -29,10 +29,16 @@
   padding: 7px;
   box-shadow: $shadow;
   transition: all 0.5s ease;
+  margin: 0px 3px;
 
   &:hover {
     color: black;
     cursor: pointer;
     cursor: hand;
   }
+}
+
+.button-container {
+  margin: 13px;
+  display: inline-block;
 }

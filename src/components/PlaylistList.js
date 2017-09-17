@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Loader from './ui/Loader';
 import PlaylistCard from './ui/PlaylistCard';
+import PlaylistInput from './ui/PlaylistInput';
 import SearchBox from './ui/SearchBox';
 import selectPlaylist from '../actions/SelectPlaylist';
 import searchPlaylists from '../actions/SearchPlaylists';
@@ -42,6 +43,7 @@ class PlaylistList extends Component {
 
     return (
       <div className="playlist-list">
+        <PlaylistInput selectPlaylist={this.props.selectPlaylist} />
         <div className="bar">
           <SearchBox id="playlist-search" value={this.props.searchQuery} onChange={this.props.search} />
           <p className="lead">You have { this.props.count } playlists.</p>

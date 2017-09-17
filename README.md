@@ -6,7 +6,6 @@ A project for the comparison of Spotify playlists
 TODO:
 -----
 
- - Show the selected playlists on the playlist list.
  - Allow the pasting of a playlist url.
  - Allow the saving of a result to a new Spotify playlist.
  - Re-order the options at the top for mobile with tooltips as normal text.
