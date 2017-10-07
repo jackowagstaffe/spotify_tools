@@ -7,6 +7,7 @@ import Loader from './ui/Loader';
 import UserPanel from './ui/UserPanel';
 import Tabs from './ui/Tabs';
 import Tab from './ui/Tab';
+import Notification from './ui/Notification';
 import CreatePlaylist from './ui/CreatePlaylist';
 import createPlaylist from '../actions/CreatePlaylist';
 import Result from './ui/Result';
@@ -28,6 +29,7 @@ class App extends Component {
         <UserPanel user={this.props.userData} />
         <h1>Spotify&nbsp;Tools</h1>
         <div className="panel">
+          <Notification />
           <div className="inner">Use the tools below to select two playlists and compare/transform them.</div>
           <div className="container">
             <OptionList />
