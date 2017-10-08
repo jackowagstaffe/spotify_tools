@@ -174,19 +174,14 @@ input[type=text].form-control {
 
 .options-container {
   max-width: 560px;
-  margin: auto; }
+  margin: auto;
+  display: flex; }
   .options-container svg .lines {
     border: 1px solid #555; }
   .options-container .selected-playlist, .options-container .options-box {
-    float: left;
     text-align: center;
     width: 200px;
     font-size: 1.2em; }
-    @media (max-width: 800px) {
-      .options-container .selected-playlist, .options-container .options-box {
-        width: 100%;
-        float: none;
-        margin: auto; } }
     .options-container .selected-playlist p, .options-container .options-box p {
       font-size: 0.8em; }
     .options-container .selected-playlist img, .options-container .options-box img {
@@ -201,11 +196,16 @@ input[type=text].form-control {
       text-transform: uppercase;
       text-align: center;
       padding-top: 60px;
-      margin: auto; }
+      margin: auto;
+      margin-top: 76px; }
+      .options-container .selected-playlist .dud-image h3, .options-container .options-box .dud-image h3 {
+        font-weight: 200;
+        margin: 0px; }
   .options-container .selected-playlist {
     width: 180px; }
   .options-container .options-box {
-    position: relative; }
+    position: relative;
+    margin-top: 76px; }
     .options-container .options-box > div {
       clear: both;
       float: none; }
@@ -227,6 +227,48 @@ input[type=text].form-control {
       display: block;
       max-width: 150px;
       margin: 10px auto; }
+
+@media (max-width: 800px) {
+  .options-container {
+    flex-direction: column; }
+    .options-container .selected-playlist, .options-container .options-box {
+      width: 100%;
+      margin: auto;
+      margin-top: 0px; }
+    .options-container .options-box {
+      order: 3; }
+    .options-container .selected-playlist {
+      max-width: 300px;
+      width: auto;
+      min-width: 200px;
+      margin-bottom: 13px; }
+      .options-container .selected-playlist .lead {
+        margin: 5px;
+        text-transform: uppercase; }
+      .options-container .selected-playlist .image-name {
+        margin: auto;
+        display: flex; }
+        .options-container .selected-playlist .image-name img {
+          width: 40px;
+          height: 40px; }
+        .options-container .selected-playlist .image-name p {
+          height: 40px;
+          line-height: 40px;
+          margin: 0px;
+          margin-left: 7px;
+          vertical-align: middle;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+      .options-container .selected-playlist .dud-image {
+        height: 40px;
+        padding: 10px;
+        padding-top: 17px;
+        background: transparent;
+        margin-top: 0px; }
+        .options-container .selected-playlist .dud-image h3 {
+          font-weight: 200;
+          color: black; } }
 
 .playlist-list {
   text-align: center; }
