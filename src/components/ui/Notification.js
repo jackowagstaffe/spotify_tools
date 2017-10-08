@@ -1,9 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import createNotification from '../../actions/CreateNotification';
 
 class Notification extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.close = this.close.bind(this);
+  }
+  close() {
+    this.props.createNotification('', 'notification-none');
+  }
   render() {
-    return <div className={`notification {this.props.className}`}>{this.props.message}</div>;
+    // Make room at top of page for notification
+    if (this.props.message !== '') {
+      document.body.className += 'notification-space';
+    } else {
+      document.body.classList.remove('notification-space');
+    }
+
+    return <div className={`notification ${this.props.className}`}>
+      {this.props.message}
+      <div onClick={this.close} className="close-button">
+        <i className="fa fa-times" aria-hidden="true"></i>
+        <span className="sr-only">close</span>
+        </div>
+    </div>;
   }
 }
 
@@ -17,4 +39,8 @@ const mapStateToProps = state => ({
   message: state.notifications.message,
 });
 
-export default connect(mapStateToProps)(Notification);
+const mapDispatchToProps = (dispatch) => ({
+  createNotification: (message, className) => dispatch(createNotification(message, className)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Notification);

@@ -1,6 +1,5 @@
 import store from '../store';
 import { connection } from '../tools';
-import createNotification from './CreateNotification';
 
 export const CREATING_PLAYLIST = 'CREATING_PLAYLIST';
 export const CREATED_PLAYLIST = 'CREATED_PLAYLIST';

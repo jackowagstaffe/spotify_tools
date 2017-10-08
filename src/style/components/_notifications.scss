@@ -1,0 +1,45 @@
+.notification {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  box-sizing: border-box;
+  height: 50px;
+  padding: 13px;
+  color: white;
+  background: black;
+  z-index: 99999;
+  transition: ease 0.3s top;
+
+  &.notification-none {
+    top: -50px;
+  }
+
+  &.notification-success::before {
+    content: '\f00c';
+    font-size: 0.8em;
+    font-family: 'FontAwesome';
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    color: white;
+    padding-right: 5px;
+  }
+
+  .close-button {
+    float: right;
+    color: white;
+  }
+}
+
+/**
+ * Make room for notificaton at top of page
+ */
+body {
+  transition: ease 0.3s padding-top;
+
+  &.notification-space {
+    padding-top: 50px;
+  }
+}
