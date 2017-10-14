@@ -13,7 +13,7 @@ class Connection {
     return this.authUrl + '?' + queryString.stringify({
       client_id: this.clientId,
       response_type: 'token',
-      redirect_uri: 'http://127.0.0.1:3000',//process.env.PUBLIC_URL,
+      redirect_uri: process.env.REACT_APP_CALLBACK || 'http://127.0.0.1:3000',
       scope: 'user-read-private playlist-read-private playlist-modify-public playlist-modify-private',
     });
   }
