@@ -159,10 +159,12 @@ input[type=text].form-control {
   border: 1px solid #555;
   color: #555;
   text-align: center;
-  padding: 7px;
+  padding: 8px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   transition: all 0.5s ease;
-  margin: 0px 3px; }
+  margin: 0px 3px;
+  background-color: white;
+  font-size: 1em; }
   .button:hover {
     color: black;
     cursor: pointer;
@@ -342,6 +344,62 @@ input[type=text].form-control {
     display: block;
     float: none; } }
 
+/**
+ * On touch devices show the a and b buttons at all times
+ */
+@media screen and (hover: none) {
+  .playlist-list ul li {
+    display: block; }
+  .playlist-list .playlist-card {
+    display: flex;
+    clear: both;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    border-top: 1px solid #ddd; }
+    .playlist-list .playlist-card .playlist-image {
+      width: 120px;
+      height: auto;
+      margin-left: 0px;
+      display: flex; }
+      .playlist-list .playlist-card .playlist-image img {
+        width: 50px;
+        height: 50px;
+        display: inline-block; }
+      .playlist-list .playlist-card .playlist-image a {
+        position: relative;
+        color: black;
+        border: 1px solid #ddd;
+        margin: 3px;
+        padding: 7px;
+        width: auto;
+        height: 20px;
+        font-size: 0.8em; }
+        .playlist-list .playlist-card .playlist-image a.selected {
+          font-size: 0.8em;
+          background-color: #ddd;
+          color: black; }
+        .playlist-list .playlist-card .playlist-image a.b {
+          left: 0px; }
+    .playlist-list .playlist-card p {
+      display: block;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      line-height: 50px;
+      height: 50px;
+      overflow: hidden;
+      width: calc(100% - 80px); }
+  .playlist-list .playlist-card:hover .playlist-image img {
+    filter: blur(0px); }
+  .playlist-list .playlist-card:hover .playlist-image a, .playlist-list .playlist-card:hover .playlist-image a:hover {
+    height: 20px;
+    padding-top: 7px;
+    background-color: white;
+    color: black;
+    font-size: 0.8em; }
+    .playlist-list .playlist-card:hover .playlist-image a:selected, .playlist-list .playlist-card:hover .playlist-image a:hover:selected {
+      background-color: #ddd; } }
+
 .tabs-list {
   border-bottom: 1px solid #ddd; }
   .tabs-list ul {
@@ -394,7 +452,8 @@ input[type=text].form-control {
     font-size: 0.9em;
     font-weight: 400;
     padding-left: 7px;
-    color: #333; }
+    color: #333;
+    width: calc(100% - 30px); }
 
 .result .secondary {
   color: #555; }
@@ -494,3 +553,6 @@ body {
   transition: ease 0.3s padding-top; }
   body.notification-space {
     padding-top: 50px; }
+
+.create-playlist {
+  margin: 13px; }
