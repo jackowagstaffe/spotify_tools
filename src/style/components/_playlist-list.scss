@@ -182,7 +182,7 @@
        color: black;
        font-size: 0.8em;
 
-       &:selected {
+       &.selected {
          background-color: $light-grey;
        }
      }

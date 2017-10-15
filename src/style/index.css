@@ -397,7 +397,7 @@ input[type=text].form-control {
     background-color: white;
     color: black;
     font-size: 0.8em; }
-    .playlist-list .playlist-card:hover .playlist-image a:selected, .playlist-list .playlist-card:hover .playlist-image a:hover:selected {
+    .playlist-list .playlist-card:hover .playlist-image a.selected, .playlist-list .playlist-card:hover .playlist-image a:hover.selected {
       background-color: #ddd; } }
 
 .tabs-list {
@@ -515,8 +515,19 @@ input[type=text].form-control {
     border-width: 8px;
     margin-left: -8px; }
 
+@media screen and (hover: none) {
+  .tooltip-container .tooltip.visible {
+    display: none; } }
+
 .playlist-input {
   padding: 13px; }
+  .playlist-input label {
+    display: inline-block;
+    width: calc(100% - 100px);
+    text-align: left; }
+  .playlist-input input[type=text].form-control {
+    width: calc(100% - 13px);
+    margin-left: 0px; }
 
 .notification {
   position: fixed;
