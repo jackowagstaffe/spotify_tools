@@ -567,3 +567,11 @@ body {
 
 .create-playlist {
   margin: 13px; }
+  .create-playlist label, .create-playlist input[type=text].form-control, .create-playlist button {
+    box-sizing: border-box; }
+
+@media screen and (max-width: 500px) {
+  .create-playlist label, .create-playlist input[type=text].form-control, .create-playlist button {
+    margin: 0px;
+    margin-bottom: 5px;
+    width: 100%; } }

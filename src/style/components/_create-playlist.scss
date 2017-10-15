@@ -1,3 +1,17 @@
 .create-playlist {
   margin: 13px;
+
+  label, input[type=text].form-control, button {
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: $break-small) {
+  .create-playlist {
+    label, input[type=text].form-control, button {
+      margin: 0px;
+      margin-bottom: 5px;
+      width: 100%;
+    }
+  }
 }
